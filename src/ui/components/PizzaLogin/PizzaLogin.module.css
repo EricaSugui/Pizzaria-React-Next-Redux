@@ -1,0 +1,43 @@
+.pizza-container{
+    max-width: 30em;
+    margin: 10px auto;
+    justify-content: center;
+}
+.pizza-logo{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 80px auto;
+    font-size: 24px;
+}
+
+@media (max-width: 700px){
+    .pizza-container{
+        max-width: 20em;
+        margin: 10px auto;
+        justify-content: center;
+    }
+    .pizza-logo{
+        margin: 120px auto;
+    }
+}
+.pizza-form{
+    display: flex;
+    flex-direction: column;
+}
+.pizza-form input {
+    background-color: var(--field-primary);
+    border-radius: 15px;
+    height: 38px;
+    margin-top: 20px;
+    text-align: left;
+    padding-left: 20px;
+}
+.pizza-submit {
+    background-color: var(--button-primary);
+    border-radius: 15px;
+    height: 38px;
+    margin-top: 40px;
+}
