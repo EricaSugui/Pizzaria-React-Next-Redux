@@ -1,0 +1,24 @@
+.header{
+    position: fixed;
+    top: 0;
+    background-color: var(--secondary);
+    width: 100%;
+  }
+.title {
+    color: var(--primary);
+    text-align: center;
+    box-shadow: 0 3px 0 var(--shadow);
+    padding: 16px;
+    margin-top: 0;
+}
+
+.title-second-word {
+    color: var(--secondary);
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    background-color: var(--primary);
+    width: 100%;
+  }
