@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.pizza-container{
+    display: none;
+}
+
+@media (max-width: 700px){
+    .pizza-container{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+    }
+    .pizza-navmenu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 0px;
+        font-family: 'Roboto Condensed', serif;
+        font-weight: 600;
+        color: var(--text-secondary);
+        font-size: 16px;
+    }
+    .pizza-menu-active {
+        font-family: 'Roboto Condensed', serif;
+        font-weight: bold;
+        border-bottom: 3px solid var(--button-primary);
+        color: var(--button-primary);
+    }
+    .pizza-profile {
+        width: 52px;
+        height: 52px;
+        text-align: left;
+        margin: 10px;
+        border-radius: 50%;
+    }
+    .pizza-hello {
+        width: 90%;
+        margin: auto;
+        font-family: 'Roboto', serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+    .pizza-hello span {
+        font-family: 'Roboto', serif;
+        font-weight: 600;
+        color: var(--button-primary);
+    }
+    .pizza-search {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 10px auto;
+        background-color: var(--field-primary);
+        height: 40px;
+        border-radius: 15px;
+        padding: 4px;
+    }
+    .pizza-search input {
+        background-color: var(--field-primary);
+        padding: 10px;
+        width: 100%;
+    }
+}
