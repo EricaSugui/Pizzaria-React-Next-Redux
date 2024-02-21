@@ -1,6 +1,7 @@
 import PizzaPage from "@/ui/components/PizzaPage/PizzaPage";
 import { useRouter } from 'next/router'
 import useIndex from "@/data/hooks/pages/useIndex";
+import PizzaHeaderDesktop from "@/ui/components/PizzaHeaderDesktop/PizzaHeaderDesktop";
 
 export default function Pizzas(){
     const router = useRouter();
@@ -8,6 +9,7 @@ export default function Pizzas(){
     const { pizzas } = useIndex();
     const pizzaItem = pizzas.filter(pizza => pizza.slug === slug)
     return <>
+        <PizzaHeaderDesktop />
         <PizzaPage pizza={pizzaItem[0]}/>
     </>
 }
