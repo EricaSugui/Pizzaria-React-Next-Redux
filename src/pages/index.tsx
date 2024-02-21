@@ -5,6 +5,7 @@ import PizzaHeader from "@/ui/components/PizzaHeader/PizzaHeader";
 import PizzaFooter from "@/ui/components/PizzaFooter/PizzaFooter";
 import PizzaHeaderDesktop from "@/ui/components/PizzaHeaderDesktop/PizzaHeaderDesktop";
 import NavMenu from "@/ui/components/NavMenu/NavMenu";
+import PizzaFooterDesktop from "@/ui/components/PizzaFooterDesktop/PizzaFooterDesktop";
 
 export default function Home() {
   const { pizzas } = useIndex();
@@ -19,6 +20,7 @@ export default function Home() {
           <NavMenu />
         </PizzaHeaderDesktop>
         <PizzaList pizzas={pizzas} />
+        <PizzaFooterDesktop />
         <PizzaFooter />
       </main>
     </div>
