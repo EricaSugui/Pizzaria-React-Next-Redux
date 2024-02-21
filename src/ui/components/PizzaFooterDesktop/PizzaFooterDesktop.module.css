@@ -1,16 +1,14 @@
 .pizza-footer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: auto;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
+    justify-content: space-around;
     width: 100%;
-    background-color: #ffffff;
+    height: 80px;
+    background-color: var(--background-special);
 }
-
-.pizza-navmenu {
-    display: none;
+.pizza-footer p{
+    margin: auto;
 }
 
 @media (max-width: 700px){

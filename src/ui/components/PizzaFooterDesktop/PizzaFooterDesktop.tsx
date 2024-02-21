@@ -8,7 +8,8 @@ import faUserAlt from '/public/img/faUserAlt.svg'
 const Footer = () => {
     return (
         <div className={style['pizza-footer']}>
-            <h2>Footer</h2>
+            <p>Pizza React 2024</p>
+            <p>Assine nossa newsletter e fique por dentro das promoções.</p>
         </div>
     )
 }
