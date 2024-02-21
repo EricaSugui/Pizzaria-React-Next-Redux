@@ -38,7 +38,8 @@
 }
 .pizza-price p {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 28px;
+    color: var(--button-primary);
 }
 .pizza-qtd{
     background-color: var(--button-secondary);
