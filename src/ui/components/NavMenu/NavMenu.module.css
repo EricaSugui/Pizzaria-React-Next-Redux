@@ -1,0 +1,23 @@
+.pizza-navmenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 0px;
+    font-family: 'Roboto Condensed', serif;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+.pizza-menu-active {
+    font-family: 'Roboto Condensed', serif;
+    font-weight: bold;
+    border-bottom: 3px solid var(--button-primary);
+    color: var(--button-primary);
+}
+@media (max-width: 700px){
+    .pizza-navmenu{
+        width: 100%;
+    }
+}
