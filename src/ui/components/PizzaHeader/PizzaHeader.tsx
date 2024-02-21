@@ -2,6 +2,7 @@ import Image from 'next/image'
 import style from './PizzaHeader.module.css'
 import avatar from '/public/img/erica-avatar.jpeg'
 import search from '/public/img/search.svg'
+import NavMenu from '../NavMenu/NavMenu'
 
 const Greetings = () => {
     return(
@@ -23,16 +24,6 @@ const Search = () => {
                 <Image src={search} alt='buscar' />
             </button>
         </div>
-    )
-}
-const NavMenu = () => {
-    return (
-        <ul className={style['pizza-navmenu']}>
-            <li>TUDO</li>
-            <li className={style['pizza-menu-active']}>PIZZAS</li>
-            <li>LANCHES</li>
-            <li>BEBIDAS</li>
-        </ul>
     )
 }
 
