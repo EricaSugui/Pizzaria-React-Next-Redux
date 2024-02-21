@@ -22,7 +22,7 @@ export function PizzaListItem({pizza}: {pizza:IPizzaList}){
                 <h2 className={styles['pizza-title']}>{pizza.title}</h2>
                 <p className={styles['pizza-description']}>{pizza.description}</p>
                 <div className={styles['pizza-price']}>
-                    <p>R$ {pizza.price}</p>
+                    <p>R$ {pizza.price?.toFixed(2)}</p>
                     <button>Pedir</button>
                 </div>
             </Link>
