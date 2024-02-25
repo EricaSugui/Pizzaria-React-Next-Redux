@@ -4,7 +4,7 @@ export interface IPizzaList{
     id: string;
     title: string;
     description?: string;
-    picture: StaticImport;
+    picture?: string | StaticImport;
     slug?: string;
     content?: JSX.Element;
     price?: number;
