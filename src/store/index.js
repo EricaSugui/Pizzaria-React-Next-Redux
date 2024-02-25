@@ -1,6 +1,6 @@
-import { createStore } from 'react-reduxredux';
+import { legacy_createStore as createStore } from 'redux';
 
-import reducers from './reducer'
+import reducers, {initialState} from './reducer'
 
-export default createStore([reducers])
+export default createStore(reducers, initialState)
 
