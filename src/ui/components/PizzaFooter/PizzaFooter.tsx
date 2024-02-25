@@ -4,25 +4,43 @@ import faHome from '/public/img/faHome.svg'
 import faShoppingCart from '/public/img/faShoppingCart.svg'
 import faGift from '/public/img/faGift.svg'
 import faUserAlt from '/public/img/faUserAlt.svg'
+import Link from 'next/link'
+import { ActiveLink } from '../PizzaLink/PizzaLink'
 
 const NavMenu = () => {
     return (
         <ul className={style['pizza-navmenu']}>
-            <li className={style['pizza-menu-active']}>
-                <Image src={faHome} alt='Home'/>
-                Home
+            <li>
+                <ActiveLink href="/" activeClassName={style['pizza-menu-active']}>
+                    <div>
+                        <Image src={faHome} alt='Home'/>
+                        <a>Home</a>
+                    </div>
+                </ActiveLink>
             </li>
             <li>
-                <Image src={faShoppingCart} alt='Carrinho'/>
-                Carrinho
+                <ActiveLink href="/carrinho" activeClassName={style['pizza-menu-active']}>
+                    <div>
+                        <Image src={faShoppingCart} alt='Carrinho'/>
+                        <a>Carrinho</a>
+                    </div>
+                </ActiveLink>
             </li>
             <li>
-                <Image src={faGift} alt='Promoções'/>
-                Promoções
+                <ActiveLink href="/promo" activeClassName={style['pizza-menu-active']}>
+                    <div>
+                        <Image src={faGift} alt='Promoções'/>
+                        <a>Promoções</a>
+                    </div>
+                </ActiveLink>
             </li>
             <li>
-                <Image src={faUserAlt} alt='Sua Conta'/>
-                Sua Conta
+                <ActiveLink href="/conta" activeClassName={style['pizza-menu-active']}>
+                    <div>
+                        <Image src={faUserAlt} alt='Sua Conta'/>
+                        <a>Sua Conta</a>
+                    </div>
+                </ActiveLink>
             </li>
         </ul>
     )
