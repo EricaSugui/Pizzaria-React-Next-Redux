@@ -14,7 +14,7 @@ const NavMenu = () => {
                 <ActiveLink href="/" activeClassName={style['pizza-menu-active']}>
                     <div>
                         <Image src={faHome} alt='Home'/>
-                        <a>Home</a>
+                        <div>Home</div>
                     </div>
                 </ActiveLink>
             </li>
@@ -22,7 +22,7 @@ const NavMenu = () => {
                 <ActiveLink href="/carrinho" activeClassName={style['pizza-menu-active']}>
                     <div>
                         <Image src={faShoppingCart} alt='Carrinho'/>
-                        <a>Carrinho</a>
+                        <div>Carrinho</div>
                     </div>
                 </ActiveLink>
             </li>
@@ -30,7 +30,7 @@ const NavMenu = () => {
                 <ActiveLink href="/promo" activeClassName={style['pizza-menu-active']}>
                     <div>
                         <Image src={faGift} alt='Promoções'/>
-                        <a>Promoções</a>
+                        <div>Promoções</div>
                     </div>
                 </ActiveLink>
             </li>
@@ -38,7 +38,7 @@ const NavMenu = () => {
                 <ActiveLink href="/conta" activeClassName={style['pizza-menu-active']}>
                     <div>
                         <Image src={faUserAlt} alt='Sua Conta'/>
-                        <a>Sua Conta</a>
+                        <div>Sua Conta</div>
                     </div>
                 </ActiveLink>
             </li>
