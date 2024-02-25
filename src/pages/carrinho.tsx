@@ -1,11 +1,17 @@
-import useIndex from "@/data/hooks/pages/useIndex";
+import { connect } from 'react-redux';
+
 import PizzaCart from "@/ui/components/PizzaCart/PizzaCart";
 import PizzaHeaderDesktop from "@/ui/components/PizzaHeaderDesktop/PizzaHeaderDesktop";
 
-export default function Carrinho(){
-    const { pizzas } = useIndex();
+function Carrinho({items}: any){
+    console.log('carrinho ', items)
     return <>
         <PizzaHeaderDesktop />
-        <PizzaCart pizzas={pizzas}/>
+        <PizzaCart pizzas={items}/>
     </>
 }
+const mapStateToProps = (state: any) => ({
+    items: state.item.list
+})
+
+export default connect(mapStateToProps)(Carrinho)

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+
 import styles from './PizzaCart.module.css'
 import PizzaFooter from "../PizzaFooter/PizzaFooter"
 import PizzaHeaderArrowBack from "../PizzaHeaderArrowBack/PizzaHeaderArrowBack"
@@ -8,21 +9,25 @@ import Hamburguer from '/public/img/hamburguer.svg'
 import Minus from '/public/img/Minus.svg'
 import Plus from '/public/img/Plus.svg'
 import { IPizzaList } from '@/data/@types/IPizzaList'
+import { INavProps } from "@/data/@types/INavProps";
 
-const CartItem = ({pizza}: {pizza: IPizzaList}) => {
+const CartItem = ({pizza}:{pizza: IPizzaList}) => {
     const [ qtd, setQtd ] = useState(pizza.qtd);
+    const [finalPrice, setFinalPrice] = useState(pizza.finalPrice)
     
     const handleMinus = () => {
         if(qtd < 1){
             return qtd
         }
         setQtd(qtd - 1)
+        setFinalPrice(finalPrice - pizza.price)
     }
     const handlePlus = () => {
         if(qtd > 9){
             return qtd
         }
         setQtd(qtd + 1)
+        setFinalPrice(finalPrice + pizza.price)
     }
 
     return < div className={styles['pizza-order-item']}>
@@ -41,10 +46,10 @@ const CartItem = ({pizza}: {pizza: IPizzaList}) => {
                 </div>
             </div>
         </div>
-            <p><span>R$ 8,00</span></p>
+            <p><span>R$ {finalPrice}</span></p>
         </div>
 }
-const CartPayment = () => {
+const CartPayment = ({children}: INavProps) => {
     const router = useRouter();
     const handleGoToPayment = () => {
         router.push("/pagamento")
@@ -53,12 +58,13 @@ const CartPayment = () => {
     return <div className={styles['pizza-order-payment']}>
         <div className={styles['pizza-total']}>
             <p>Total</p>
-            <p><span>R$ 135,00</span></p>
+            <p>{children}</p>
         </div>
         <button onClick={handleGoToPayment}> IR PARA O PAGAMENTO </button>
     </div>
 }
 export default function PizzaCart({pizzas}: {pizzas: IPizzaList[]}){
+    const total = pizzas.reduce((acc, curr) => acc + curr.finalPrice, 0);
     return<>
         <PizzaHeaderArrowBack>
             <button><Image src={Hamburguer} alt='menu'/></button>
@@ -70,7 +76,11 @@ export default function PizzaCart({pizzas}: {pizzas: IPizzaList[]}){
                 <CartItem key={pizza.id} pizza={pizza} />)
             )
         }
-        <CartPayment />
+        <CartPayment>
+        <span>R$ 
+            {total}
+        </span>
+        </CartPayment>
         </div>
         <PizzaFooter/>
     </>
