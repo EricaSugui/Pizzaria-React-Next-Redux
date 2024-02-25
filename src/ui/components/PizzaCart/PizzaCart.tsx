@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Hamburguer from '/public/img/hamburguer.svg'
 import Minus from '/public/img/Minus.svg'
 import Plus from '/public/img/Plus.svg'
+import Trash from '/public/img/trash.svg'
 import { IPizzaList } from '@/data/@types/IPizzaList'
 import { INavProps } from "@/data/@types/INavProps";
 
@@ -29,6 +30,9 @@ const CartItem = ({pizza}:{pizza: IPizzaList}) => {
         setQtd(qtd + 1)
         setFinalPrice(finalPrice + pizza.price)
     }
+    const handleRemove = () => {
+        console.log('button remove clicked!')
+    }
 
     return < div className={styles['pizza-order-item']}>
             <Image className={styles['pizza-img']} src={pizza.picture} alt={pizza.title} priority={true}/>
@@ -46,7 +50,12 @@ const CartItem = ({pizza}:{pizza: IPizzaList}) => {
                 </div>
             </div>
         </div>
-            <p><span>R$ {finalPrice}</span></p>
+        <div className="flex flex-row items-center space-x-2">
+            <p><span>R$ {finalPrice?.toFixed(2)}</span></p>
+            <button onClick={handleRemove}>
+                <Image src={Trash} alt="Excluir" />
+            </button>
+        </div>
         </div>
 }
 const CartPayment = ({children}: INavProps) => {
@@ -78,7 +87,7 @@ export default function PizzaCart({pizzas}: {pizzas: IPizzaList[]}){
         }
         <CartPayment>
         <span>R$ 
-            {total}
+            {total.toFixed(2)}
         </span>
         </CartPayment>
         </div>
