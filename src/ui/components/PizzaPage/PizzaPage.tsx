@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import styles from './PizzaPage.module.css';
 import { IPizzaList } from "@/data/@types/IPizzaList";
@@ -6,14 +8,17 @@ import Clock from '/public/img/Clock.svg'
 import Kcal from '/public/img/Kcal.svg'
 import Minus from '/public/img/Minus.svg'
 import Plus from '/public/img/Plus.svg'
+import Favorite from '/public/img/fav.svg'
+import YellowFavorite from '/public/img/favYellow.svg'
 import PizzaHeaderArrowBack from "../PizzaHeaderArrowBack/PizzaHeaderArrowBack";
 import PizzaFooter from "../PizzaFooter/PizzaFooter";
-import { useState } from "react";
 
 export default function PizzaPage({pizza}: {pizza: IPizzaList}){
     const [ qtd, setQtd ] = useState(1);
+    const [ fav, setFav ] = useState(false);
     const [ order, setOrder ] = useState<IPizzaList[]>([]);
-
+    const router = useRouter(); 
+    
     const handleMinus = () => {
         if(qtd < 1){
             return qtd
@@ -33,19 +38,29 @@ export default function PizzaPage({pizza}: {pizza: IPizzaList}){
             title: pizza.title,
             picture: pizza.picture,
             qtd: qtd, 
-            finalPrice: pizza.price * qtd
+            finalPrice: pizza.price * qtd,
+            fav: fav,
         }
     const handleOrder = () => {
-        setOrder([...order, orderItem])
+        setOrder([...order, orderItem]);
+        router.push("/carrinho")
+    }
+    const handleFavorite = () => {
+        setFav(!fav)
     }
     console.log("order: ", order)
+    console.log('fav: ', fav)
     
     return (
             <>
-            <PizzaHeaderArrowBack />
+            <PizzaHeaderArrowBack>
+                <button onClick={handleFavorite}>{
+                    fav ? (<Image src={YellowFavorite} alt="favorito"/>) : (<Image src={Favorite} alt="favorito"/>)
+                }</button>
+            </PizzaHeaderArrowBack>
         <div className={styles['pizza-container']}>
             <div className={styles['pizza-picture']}>
-                <Image src={pizza.picture} alt={pizza.title} />
+                <Image src={pizza.picture} alt={pizza.title} priority={true} />
             </div>
 
             <div className={styles['pizza-main']}>

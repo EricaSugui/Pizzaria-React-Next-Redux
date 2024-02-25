@@ -13,6 +13,7 @@ export default function useIndex(){
             rating: '4,6',
             time: '20 min',
             kcal: '365 kcal',
+            qtd: 1,
         },
         {
             id: '2',
@@ -24,6 +25,7 @@ export default function useIndex(){
             rating: '4,7',
             time: '25 min',
             kcal: '415 kcal',
+            qtd: 1,
         },
         {
             id: '3',
@@ -35,6 +37,7 @@ export default function useIndex(){
             rating: '4,9',
             time: '20 min',
             kcal: '475 kcal',
+            qtd: 1,
         },
         {
             id: '4',
@@ -46,6 +49,7 @@ export default function useIndex(){
             rating: '4,9',
             time: '20 min',
             kcal: '475 kcal',
+            qtd: 1,
         },
         {
             id: '5',
@@ -57,6 +61,7 @@ export default function useIndex(){
             rating: '4,9',
             time: '20 min',
             kcal: '475 kcal',
+            qtd: 1,
         },
         {
             id: '6',
@@ -68,6 +73,7 @@ export default function useIndex(){
             rating: '4,9',
             time: '20 min',
             kcal: '475 kcal',
+            qtd: 1,
         },
     ]
     return {

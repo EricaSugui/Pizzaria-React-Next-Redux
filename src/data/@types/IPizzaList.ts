@@ -13,4 +13,5 @@ export interface IPizzaList{
     kcal?: string;
     qtd?: number;
     finalPrice?: number;
+    fav?: boolean;
 }
