@@ -1,0 +1,91 @@
+.pizza-order{
+    width: 70%;
+    margin: 120px auto 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Roboto', serif;
+}
+.pizza-order h2 {
+    font-size: 28px;
+    font-weight: 500;
+}
+.pizza-order-item {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 16px;
+    width: 100%;
+    color: var(--text-secondary);
+    box-shadow: 5px 5px 30px 5px var(--shadow);
+    border-radius: 15px;
+}
+.pizza-img{
+    width: 15%;
+}
+.pizza-order-item span{
+    color: var(--text-special);
+    font-size: 20px;
+    font-weight: bold;
+}
+.item-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    height: 100%;
+}
+.pizza-qtd{
+    background-color: var(--button-secondary);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.pizza-order-payment{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.pizza-order-payment button{
+    background-color: var(--button-primary);
+    border-radius: 30px;
+    height: 60px;
+    font-weight: 500;
+}
+.pizza-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 600;
+}
+.pizza-total span{
+    color: var(--text-special);
+}
+
+
+@media (max-width: 700px){
+    .pizza-order{
+        width: 100%;
+        max-width: 22em;
+        margin: 10px auto 96px;
+    }
+    .pizza-order h2 {
+        font-size: 24px;
+    }
+    .pizza-img{
+        width: 25%;
+        height: 25%;
+    }
+    .item-right{
+        width: 40%;
+        height: auto;
+    }
+}
