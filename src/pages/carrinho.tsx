@@ -2,16 +2,16 @@ import { connect } from 'react-redux';
 
 import PizzaCart from "@/ui/components/PizzaCart/PizzaCart";
 import PizzaHeaderDesktop from "@/ui/components/PizzaHeaderDesktop/PizzaHeaderDesktop";
+import { IPizzaList } from '@/data/@types/IPizzaList';
 
-function Carrinho({items}: any){
-    console.log('carrinho ', items)
+function Carrinho({pizzas}: {pizzas: IPizzaList}){
     return <>
         <PizzaHeaderDesktop />
-        <PizzaCart pizzas={items}/>
+        <PizzaCart pizzas={pizzas}/>
     </>
 }
 const mapStateToProps = (state: any) => ({
-    items: state.item.list
+    pizzas: state.item.list
 })
 
 export default connect(mapStateToProps)(Carrinho)

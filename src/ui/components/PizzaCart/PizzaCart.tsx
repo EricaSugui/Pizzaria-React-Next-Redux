@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 
+import {connect} from 'react-redux'
+import {removeItem} from '@/store/actions/item'
+import {useDispatch} from 'react-redux'
+
 import styles from './PizzaCart.module.css'
 import PizzaFooter from "../PizzaFooter/PizzaFooter"
 import PizzaHeaderArrowBack from "../PizzaHeaderArrowBack/PizzaHeaderArrowBack"
@@ -12,9 +16,10 @@ import Trash from '/public/img/trash.svg'
 import { IPizzaList } from '@/data/@types/IPizzaList'
 import { INavProps } from "@/data/@types/INavProps";
 
-const CartItem = ({pizza}:{pizza: IPizzaList}) => {
+const CartItem = ({pizza}: {pizza: IPizzaList}) => {
     const [ qtd, setQtd ] = useState(pizza.qtd);
-    const [finalPrice, setFinalPrice] = useState(pizza.finalPrice)
+    const [finalPrice, setFinalPrice] = useState(pizza.finalPrice);
+    const dispatch = useDispatch();
     
     const handleMinus = () => {
         if(qtd < 1){
@@ -31,7 +36,7 @@ const CartItem = ({pizza}:{pizza: IPizzaList}) => {
         setFinalPrice(finalPrice + pizza.price)
     }
     const handleRemove = () => {
-        console.log('button remove clicked!')
+        dispatch(removeItem(pizza))
     }
 
     return < div className={styles['pizza-order-item']}>
@@ -52,10 +57,12 @@ const CartItem = ({pizza}:{pizza: IPizzaList}) => {
         </div>
         <div className="flex flex-row items-center space-x-2">
             <p><span>R$ {finalPrice?.toFixed(2)}</span></p>
-            <button onClick={handleRemove}>
-                <Image src={Trash} alt="Excluir" />
-            </button>
-        </div>
+                <div>
+                    <button onClick={handleRemove}>
+                        <Image src={Trash} alt="Excluir" />
+                    </button>
+                </div>
+            </div>
         </div>
 }
 const CartPayment = ({children}: INavProps) => {
@@ -72,8 +79,10 @@ const CartPayment = ({children}: INavProps) => {
         <button onClick={handleGoToPayment}> IR PARA O PAGAMENTO </button>
     </div>
 }
-export default function PizzaCart({pizzas}: {pizzas: IPizzaList[]}){
+
+function PizzaCart({pizzas}: {pizzas: IPizzaList[]}){
     const total = pizzas.reduce((acc, curr) => acc + curr.finalPrice, 0);
+    
     return<>
         <PizzaHeaderArrowBack>
             <button><Image src={Hamburguer} alt='menu'/></button>
@@ -82,7 +91,8 @@ export default function PizzaCart({pizzas}: {pizzas: IPizzaList[]}){
             <h2>Carrinho</h2>
             {
             pizzas.map(pizza => (
-                <CartItem key={pizza.id} pizza={pizza} />)
+                <CartItem key={pizza.id} pizza={pizza} />
+                )
             )
         }
         <CartPayment>
@@ -94,3 +104,9 @@ export default function PizzaCart({pizzas}: {pizzas: IPizzaList[]}){
         <PizzaFooter/>
     </>
 }
+
+const mapStateToProps = (state: any) => ({
+    pizzas: state.item.list
+})
+
+export default connect(mapStateToProps, {removeItem})(PizzaCart)

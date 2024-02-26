@@ -1,6 +1,7 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import React from "react";
 
-export interface IPizzaList{
+export type IPizzaList ={
     id: string;
     title: string;
     description?: string;
