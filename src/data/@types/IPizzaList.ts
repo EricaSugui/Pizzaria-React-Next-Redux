@@ -1,7 +1,5 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import React from "react";
-
-export type IPizzaList ={
+export interface IPizzaList {
     id: string;
     title: string;
     description?: string;
@@ -12,7 +10,7 @@ export type IPizzaList ={
     rating?: string;
     time?: string;
     kcal?: string;
-    qtd?: number;
-    finalPrice?: number;
+    qtd?: number | undefined;
+    finalPrice?: number | undefined;
     fav?: boolean;
 }
