@@ -119,7 +119,7 @@ function PizzaPage(
 }
 
 const mapStateToProps = (state: any) => ({
-    pizzasList: state.item.list
+    pizzasList: state.items.list
 })
 
 export default connect(
