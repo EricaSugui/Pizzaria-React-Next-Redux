@@ -11,7 +11,7 @@ function Carrinho({pizzas}: {pizzas: IPizzaList}){
     </>
 }
 const mapStateToProps = (state: any) => ({
-    pizzas: state.item.list
+    pizzas: state.items.list
 })
 
 export default connect(mapStateToProps)(Carrinho)
