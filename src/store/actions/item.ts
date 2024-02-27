@@ -22,7 +22,14 @@ export function addItem(item: IPizzaList) {
 export const updateItem = (item: IPizzaList) => {
     return {
             type: UPDATE_ITEM,
-            item
+            payload: {
+                id: item.id,
+                title: item.title,
+                qtd: item.qtd,
+                finalPrice: item.finalPrice,
+                price: item.price,
+                picture: item.picture
+            }
     }
 }
 
