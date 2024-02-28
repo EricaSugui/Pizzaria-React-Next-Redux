@@ -50,7 +50,6 @@ const CartItem = ({pizza}: {pizza: IPizzaList}) => {
 
     useEffect(()=>{
         dispatch(updateItem(finalPizza))
-        console.log('UPDATE ', finalPizza)
     }, [qtd])
 
     return < div className={styles['pizza-order-item']}>
@@ -115,8 +114,8 @@ function PizzaCart(){
         <CartPayment />
         </div>
         <PizzaFooter/>
-        {console.log('updatedList: ', listUpdated)}
-        {console.log('pizzaList: ', listUpdated)}
+        {/* {console.log('updatedList: ', listUpdated)} */}
+        {/* {console.log('pizzaList: ', listUpdated)} */}
 
     </>
 }
